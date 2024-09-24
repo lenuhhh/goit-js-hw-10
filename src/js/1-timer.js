@@ -12,14 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let userSelectedDate = null;
   let timerInterval = null;
 
-  // Об'єкт параметрів для flatpickr
   const options = {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-      console.log(selectedDates[0]); // Виводить обрану дату в консоль
+      console.log(selectedDates[0]);
       if (selectedDates[0] <= new Date()) {
         iziToast.error({ title: 'Error', message: 'Please choose a date in the future' });
         startBtn.disabled = true;
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-  // Ініціалізація Flatpickr з використанням об'єкта параметрів
+
   flatpickr("#datetime-picker", options);
 
   startBtn.addEventListener('click', () => {
